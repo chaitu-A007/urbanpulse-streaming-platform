@@ -1,0 +1,5 @@
+route_id,route_name,terminal,scheduled_arrival_time
+ROUTE_101,Airport Express,Terminal 2,18:30:00
+ROUTE_202,Central Metro Line,Station 5,18:45:00
+ROUTE_303,Coastal Highway Route,Beach Road,19:00:00
+ROUTE_404,Suburban Link,Tech Park Gate 3,19:15:00

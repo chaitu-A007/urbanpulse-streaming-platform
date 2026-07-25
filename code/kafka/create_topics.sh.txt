@@ -1,0 +1,50 @@
+
+
+# Target the Kafka Brokers
+BOOTSTRAP_SERVERS="localhost:9092,localhost:9093,localhost:9094"
+
+echo "=========================================================="
+echo "Creating UrbanPulse Kafka Topics on 3-Broker Cluster..."
+echo "=========================================================="
+
+# 1. Bus GPS Stream (~2,400 ev/sec) -> 24 hours retention
+docker exec -it urbanpulse-kafka-1 kafka-topics --bootstrap-server kafka1:29092 --create \
+  --if-not-exists \
+  --topic urbanpulse.bus_gps \
+  --partitions 12 \
+  --replication-factor 3 \
+  --config retention.ms=86400000 \
+  --config cleanup.policy=delete
+
+# 2. Traffic Signals Stream (~380 ev/sec) -> 7 days retention
+docker exec -it urbanpulse-kafka-1 kafka-topics --bootstrap-server kafka1:29092 --create \
+  --if-not-exists \
+  --topic urbanpulse.traffic_signals \
+  --partitions 6 \
+  --replication-factor 3 \
+  --config retention.ms=604800000 \
+  --config cleanup.policy=delete
+
+# 3. Air Quality Stream (~60 ev/sec) -> 90 days retention
+docker exec -it urbanpulse-kafka-1 kafka-topics --bootstrap-server kafka1:29092 --create \
+  --if-not-exists \
+  --topic urbanpulse.air_quality \
+  --partitions 3 \
+  --replication-factor 3 \
+  --config retention.ms=7776000000 \
+  --config cleanup.policy=delete
+
+# 4. Smart Meters Stream (~1,100 ev/sec) -> 365 days retention
+docker exec -it urbanpulse-kafka-1 kafka-topics --bootstrap-server kafka1:29092 --create \
+  --if-not-exists \
+  --topic urbanpulse.smart_meters \
+  --partitions 8 \
+  --replication-factor 3 \
+  --config retention.ms=31536000000 \
+  --config cleanup.policy=delete
+
+echo "=========================================================="
+echo "Topics Created Successfully! Listing Cluster Topics:"
+echo "=========================================================="
+
+docker exec -it urbanpulse-kafka-1 kafka-topics --bootstrap-server kafka1:29092 --list

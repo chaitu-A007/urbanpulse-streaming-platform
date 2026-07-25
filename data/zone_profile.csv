@@ -1,0 +1,11 @@
+zone,zone_name,population,num_schools
+ZONE_1,Downtown Core,450000,32
+ZONE_2,Industrial Corridor,180000,8
+ZONE_3,Suburban East,320000,45
+ZONE_4,Tech Corridor,290000,22
+ZONE_5,Port & Logistics,120000,5
+ZONE_6,North Suburban,210000,28
+ZONE_7,Central Metro,510000,50
+ZONE_8,Airport Zone,95000,4
+ZONE_9,South Ridge,160000,19
+ZONE_10,West Commercial,380000,35

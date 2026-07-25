@@ -1,0 +1,12 @@
+# Ignore checkpoints and parquet outputs anywhere in the repo
+**/checkpoints/
+**/parquet_output/
+**/output/
+**/venv/
+**/.venv/
+**/.spark_metadata/
+
+# Python cache & OS junk
+**/__pycache__/
+*.pyc
+.DS_Store
