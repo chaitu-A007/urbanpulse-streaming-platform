@@ -1,0 +1,16 @@
+# Kafka Messaging Client
+confluent-kafka>=2.3.0
+kafka-python>=2.0.2
+
+# Stream Processing Engines
+pyspark>=3.5.0
+apache-flink>=1.18.0
+
+# Data Storage & Parquet Processing
+pyarrow>=14.0.0
+fastparquet>=2023.10.0
+pandas>=2.0.0
+
+# Data Utilities & Serialization
+pytz>=2023.3
+six>=1.16.0
